@@ -1,0 +1,95 @@
+body {
+  background-color: #1a1b26;
+  color: #a9b1d6;
+  font-family: monospace;
+  font-size: 0.85rem;
+  padding: 2rem 0;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  color: #f7768e;
+  font-size: 0.9rem;
+  margin: 0;
+  font-weight: 700;
+}
+
+h2 {
+  color: #7AA2F7;
+}
+
+h1::before, h2::before, h3::before, h4::before, h5::before, h6::before {
+  content: "# ";
+  color: #444b6a;
+}
+
+a {
+  text-decoration: none;
+  transition-duration: 0.15s;
+}
+
+#poem {
+  display: grid;
+  border-spacing: 2rem 0;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  counter-reset: line;
+  text-align: left;
+}
+
+#poem > li {
+  display: inline-grid;
+  grid-template-columns: auto 3rem;
+}
+
+#poem > li:not(.para) {
+  counter-increment: line;
+}
+
+#poem > li:not(.para):nth-child(5n+1)::after, #poem > li:not(.para):last-child::after {
+  content: counter(line);
+  text-align: left;
+  cursor: default;
+  grid-column-start: 2;
+  color: #676f96;
+}
+
+.para {
+  margin: 0.75rem 0;
+  color: #444b6a;
+}
+
+.caption {
+  color: #676f96;
+}
+
+.copyright {
+  text-align: center;
+}
+
+.copyright::before {
+  color: #676f96;
+  content: "© ";
+  user-select: all;
+}
+
+.back {
+  color: #7da6ff;
+  margin-bottom: 1rem;
+  display: block;
+  text-decoration: none;
+  transition-duration: 0.75s;
+}
+
+.back:hover {
+  color: #4a83ff;
+  margin-left: -1rem;
+}
+
+.back::before {
+  content: "< ";
+}
+
+.pagination {
+  margin: auto;
+}

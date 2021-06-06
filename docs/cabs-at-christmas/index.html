@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    
+    
+    <title>jacob fisher poetry | Cabs at Christmas</title>
+</head>
+<body><div id="content">
+<div class="container">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-12 col-sm-10 col-md-6">
+            <a class="back" href="/">Go back</a>
+            <h1>Cabs at Christmas</h1>
+            <pre id="poem">The taxi driver desolately peers
+With beautiful blues blaring in his cab.
+His cheeks becoming stained and daubed with tears.
+Awaiting blithely that next drunken drab.
+
+His sharpened scalpel, recently stolen,
+Now covets blood once more on Christmas eve.
+&#39;Crime pays the dime on time,&#39; he chants his omen.
+Snowy teardrops always join begs of leave.
+
+This sweet piano dampens heavy souls
+Because the midnight sun will never set.
+&#39;Baby, baby, don&#39;t you know these rolling roads
+Make the midnight monster in me?&#39; Forget...
+
+Mind of murder, scalpel of salvation;
+Now I bid, rid of this cold creation.</pre>
+
+<div class="caption">
+    <div class="date">
+        Monday 24 May 2021
+    </div>
+</div>
+</div>
+        <div class="col"></div>
+    </div>
+</div>
+
+        </div><div class="copyright">Jacob Fisher</div>
+<div class="text-center">
+    <a href='https://poet.jcbfshr.com/index.xml'>Add to your RSS feed</a>
+</div><script>
+    var old = document.getElementById("poem"),
+        poem = document.createElement("ol");
+    poem.id = "poem";
+    old.textContent.split("\n").forEach(function (line) {
+        var li = document.createElement("li");
+        if (line.trim() == "" || line.trim() == "~~~") {
+            li.classList.add("para");
+        }
+        li.textContent = line;
+        poem.appendChild(li);
+    });
+    old.parentNode.replaceChild(poem, old);
+</script>
+</body>
+</html>

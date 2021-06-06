@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    
+    
+    <title>jacob fisher poetry | Flicker</title>
+</head>
+<body><div id="content">
+<div class="container">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-12 col-sm-10 col-md-6">
+            <a class="back" href="/">Go back</a>
+            <h1>Flicker</h1>
+            <pre id="poem">TVs flickering in the street, and
+Strobing the docile faces, and
+Pulsing the pleasures of another people.
+
+Biharmonic stereo, play.
+This mono thinking delay
+Pushes us into dismay;
+Ultimately the stereo stray.
+
+Boring books burning bright:
+Soot makes you stutter.
+Darkness now hidden behind
+The anthracite cloak.
+Please don&#39;t let the salamander get me...
+
+Listen, and listen well.
+Seeming specious, how alien it seems!
+Chanting chords: now a diminished art.
+Say what you came to say, and go!
+We&#39;re tired of the nude liberties;
+We want the world to be blue.
+~~~
+D&#39;you remember that? Blue.
+Red blue red. Viscous and venous.</pre>
+
+<div class="caption">
+    <div class="date">
+        Sunday 06 June 2021
+    </div>
+</div>
+</div>
+        <div class="col"></div>
+    </div>
+</div>
+
+        </div><div class="copyright">Jacob Fisher</div>
+<div class="text-center">
+    <a href='https://poet.jcbfshr.com/index.xml'>Add to your RSS feed</a>
+</div><script>
+    var old = document.getElementById("poem"),
+        poem = document.createElement("ol");
+    poem.id = "poem";
+    old.textContent.split("\n").forEach(function (line) {
+        var li = document.createElement("li");
+        if (line.trim() == "" || line.trim() == "~~~") {
+            li.classList.add("para");
+        }
+        li.textContent = line;
+        poem.appendChild(li);
+    });
+    old.parentNode.replaceChild(poem, old);
+</script>
+</body>
+</html>

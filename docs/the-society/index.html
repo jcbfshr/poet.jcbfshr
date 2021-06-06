@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    
+    
+    <title>jacob fisher poetry | The Society</title>
+</head>
+<body><div id="content">
+<div class="container">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-12 col-sm-10 col-md-6">
+            <a class="back" href="/">Go back</a>
+            <h1>The Society</h1>
+            <pre id="poem">&#39;Who am I?&#39; you asked casually.
+They swept away the philosophy,
+Called it a flagrant waste of time.
+You paused and realised the irony.
+
+Misunderstanding is ubiquitous but
+Understood. Tell me, tell me.
+Tell me what I am,
+Who I am and
+How I am. Because
+You do it anyway.
+
+Tell me where I am:
+Perplexed miens of perceived ineptness
+Or inherited doubt.
+rid, rid, riddance.
+
+Life&#39;s a game, but not for us.
+Retrospectively, you were
+Never really happy.
+So tell me, executioner:
+Why am I,
+Still here?
+
+We&#39;ve stopped thinking—so
+You&#39;re no longer being.
+&#39;All around!&#39; they clamour,
+&#39;We&#39;ve come to see your last stammer.&#39;</pre>
+
+<div class="caption">
+    <div class="date">
+        Friday 21 May 2021
+    </div>
+</div>
+</div>
+        <div class="col"></div>
+    </div>
+</div>
+
+        </div><div class="copyright">Jacob Fisher</div>
+<div class="text-center">
+    <a href='https://poet.jcbfshr.com/index.xml'>Add to your RSS feed</a>
+</div><script>
+    var old = document.getElementById("poem"),
+        poem = document.createElement("ol");
+    poem.id = "poem";
+    old.textContent.split("\n").forEach(function (line) {
+        var li = document.createElement("li");
+        if (line.trim() == "" || line.trim() == "~~~") {
+            li.classList.add("para");
+        }
+        li.textContent = line;
+        poem.appendChild(li);
+    });
+    old.parentNode.replaceChild(poem, old);
+</script>
+</body>
+</html>
