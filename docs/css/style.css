@@ -43,11 +43,11 @@ a {
   white-space: pre;
 }
 
-#poem > li:not(.para) {
+#poem > li:not(.fullbreak) {
   counter-increment: line;
 }
 
-#poem > li:not(.para):nth-child(5n+1)::after, #poem > li:not(.para):last-child::after {
+#poem > li:nth-child(5n+0)::after, #poem > li:last-child::after, #poem > li:first-child::after {
   content: counter(line);
   text-align: left;
   cursor: default;
@@ -56,6 +56,10 @@ a {
 }
 
 .para {
+  margin-top: 1.5rem;
+}
+
+.fullbreak {
   margin: 0.75rem 0;
   color: #444b6a;
 }

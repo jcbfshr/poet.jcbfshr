@@ -23,7 +23,7 @@
     </div>
 </div>
 
-                <span>/ Poem /</span>
+		    
             </div>
         
             <div class="m-4">
@@ -36,7 +36,7 @@
     </div>
 </div>
 
-                <span>/ Poem /</span>
+		    
             </div>
         
             <div class="m-4">
@@ -49,7 +49,7 @@
     </div>
 </div>
 
-                <span>/ Poem /</span>
+		    
             </div>
         
             <div class="m-4">
@@ -62,7 +62,7 @@
     </div>
 </div>
 
-                <span>/ Poem /</span>
+		    
             </div>
         
             <div class="m-4">
@@ -75,7 +75,7 @@
     </div>
 </div>
 
-                <span>/ Poem /</span>
+		    
             </div>
         
             <div class="m-4">
@@ -88,7 +88,7 @@
     </div>
 </div>
 
-                <span>/ Poem /</span>
+		    
             </div>
         
             <div class="m-4">
@@ -101,7 +101,7 @@
     </div>
 </div>
 
-                <span>/ Poem /</span>
+		    
             </div>
         
             <div class="m-4">
@@ -114,7 +114,7 @@
     </div>
 </div>
 
-                <span>/ Poem /</span>
+		    
             </div>
         
             <div class="m-4">
@@ -127,7 +127,7 @@
     </div>
 </div>
 
-                <span>/ Poem /</span>
+		    
             </div>
         
     </div>
@@ -136,18 +136,30 @@
 <div class="text-center">
     <a href='https://poet.jcbfshr.com/index.xml'>Add to your RSS feed</a>
 </div><script>
-    var old = document.getElementById("poem"),
-        poem = document.createElement("ol");
-    poem.id = "poem";
-    old.textContent.split("\n").forEach(function (line) {
-        var li = document.createElement("li");
-        if (line.trim() == "" || line.trim() == "~~~") {
-            li.classList.add("para");
-        }
-        li.textContent = line;
-        poem.appendChild(li);
-    });
-    old.parentNode.replaceChild(poem, old);
+	var old = document.getElementById("poem"),
+	poem = document.createElement("ol");
+	poem.id = "poem";
+	var linebreak = false;
+	old.textContent.split("\n").forEach(function (line) {
+		if (line.trim() == "") {
+			linebreak = true;
+			return false
+		} else {
+			if (line.trim() == "~~~") {
+				var li = document.createElement("span");
+				li.classList.add("fullbreak");
+			} else {
+				var li = document.createElement("li");
+				if (linebreak) {
+					linebreak = false;
+					li.classList.add("para");
+				}
+			}
+		}
+		li.textContent = line;
+		poem.appendChild(li);
+	});
+	old.parentNode.replaceChild(poem, old);
 </script>
 </body>
 </html>
