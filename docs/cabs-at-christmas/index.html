@@ -48,9 +48,11 @@ Now I bid, rid of this cold creation.</pre>
     <a href='https://poet.jcbfshr.com/index.xml'>Add to your RSS feed</a>
 </div><script>
 	var old = document.getElementById("poem"),
-	poem = document.createElement("ol");
+		poem = document.createElement("ol"),
+		wrapper = poem;
 	poem.id = "poem";
 	var linebreak = false;
+	var startWrapper = false;
 	old.textContent.split("\n").forEach(function (line) {
 		if (line.trim() == "") {
 			linebreak = true;
@@ -59,6 +61,18 @@ Now I bid, rid of this cold creation.</pre>
 			if (line.trim() == "~~~") {
 				var li = document.createElement("span");
 				li.classList.add("fullbreak");
+			} else if (line.trim() == '~Monospace~') {
+				var li = document.createElement('div');
+				li.classList.add('monospace')
+				line = 'startWrapper';
+				startWrapper = true;
+			} else if (line.trim() == '~/Monospace~') {
+				line = 'endWrapper';
+				wrapper = poem;
+			} else if (line.trim().startsWith("~") && line.trim().endsWith("~")) {
+				var li = document.createElement("span");
+				li.classList.add("text-center","mt-4");
+				line = line.replace(/~/gi,"");
 			} else {
 				var li = document.createElement("li");
 				if (linebreak) {
@@ -67,10 +81,15 @@ Now I bid, rid of this cold creation.</pre>
 				}
 			}
 		}
-		li.textContent = line;
-		poem.appendChild(li);
+		if (line != 'endWrapper') {
+			li.textContent = line;
+			wrapper.appendChild(li);
+		}
+		if (line == 'startWrapper') {
+			li.textContent = '';
+			wrapper = li;
+		}
 	});
 	old.parentNode.replaceChild(poem, old);
-</script>
-</body>
+</script></body>
 </html>

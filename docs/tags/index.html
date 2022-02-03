@@ -13,6 +13,19 @@
   <a href="/"><h1 class="title">jacob fisher poetry</h1></a>
     
     <p>
+        <h2><a class="title" href="/slow-down-cloudburst/">Slow down cloudburst</a></h2>
+        
+
+<div class="caption">
+    <div class="date">
+        Thursday 03 February 2022
+    </div>
+</div>
+
+        <span>/ Poem /</span>
+    </p>
+    
+    <p>
         <h2><a class="title" href="/soul-scales/">soul scales</a></h2>
         
 
@@ -136,9 +149,11 @@
     <a href='https://poet.jcbfshr.com/index.xml'>Add to your RSS feed</a>
 </div><script>
 	var old = document.getElementById("poem"),
-	poem = document.createElement("ol");
+		poem = document.createElement("ol"),
+		wrapper = poem;
 	poem.id = "poem";
 	var linebreak = false;
+	var startWrapper = false;
 	old.textContent.split("\n").forEach(function (line) {
 		if (line.trim() == "") {
 			linebreak = true;
@@ -147,6 +162,18 @@
 			if (line.trim() == "~~~") {
 				var li = document.createElement("span");
 				li.classList.add("fullbreak");
+			} else if (line.trim() == '~Monospace~') {
+				var li = document.createElement('div');
+				li.classList.add('monospace')
+				line = 'startWrapper';
+				startWrapper = true;
+			} else if (line.trim() == '~/Monospace~') {
+				line = 'endWrapper';
+				wrapper = poem;
+			} else if (line.trim().startsWith("~") && line.trim().endsWith("~")) {
+				var li = document.createElement("span");
+				li.classList.add("text-center","mt-4");
+				line = line.replace(/~/gi,"");
 			} else {
 				var li = document.createElement("li");
 				if (linebreak) {
@@ -155,10 +182,15 @@
 				}
 			}
 		}
-		li.textContent = line;
-		poem.appendChild(li);
+		if (line != 'endWrapper') {
+			li.textContent = line;
+			wrapper.appendChild(li);
+		}
+		if (line == 'startWrapper') {
+			li.textContent = '';
+			wrapper = li;
+		}
 	});
 	old.parentNode.replaceChild(poem, old);
-</script>
-</body>
+</script></body>
 </html>

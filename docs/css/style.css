@@ -66,6 +66,12 @@ a {
   color: #676f96;
 }
 
+.monospace {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.85rem;
+  white-space: pre;
+}
+
 .para {
   margin-top: 1.5rem;
 }
