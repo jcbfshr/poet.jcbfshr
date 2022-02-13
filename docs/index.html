@@ -20,20 +20,6 @@
                 
                     <div class="px-4 my-4 col-auto entry-end">
                 
-                    <h2><a class="title" href="/slow-down-cloudburst/">Slow down cloudburst</a></h2>
-                    
-
-<div class="caption">
-    <div class="date">
-        Thursday 03 February 2022
-    </div>
-</div>
-
-                </div>
-            
-                
-                    <div class="px-4 my-4 col-auto entry">
-                
                     <h2><a class="title" href="/soul-scales/">soul scales</a></h2>
                     
 
@@ -46,9 +32,7 @@
                 </div>
             
                 
-                    </div>
-                    <div class="row justify-content-center">
-                    <div class="px-4 my-4 col-auto entry-end">
+                    <div class="px-4 my-4 col-auto entry">
                 
                     <h2><a class="title" href="/embers-and-ending-embraces/">EMBERS AND ENDING EMBRACES</a></h2>
                     
@@ -62,7 +46,9 @@
                 </div>
             
                 
-                    <div class="px-4 my-4 col-auto entry">
+                    </div>
+                    <div class="row justify-content-center">
+                    <div class="px-4 my-4 col-auto entry-end">
                 
                     <h2><a class="title" href="/i-lived-by-the-chalice/">I lived by the chalice</a></h2>
                     
@@ -90,9 +76,7 @@
                 </div>
             
                 
-                    </div>
-                    <div class="row justify-content-center">
-                    <div class="px-4 my-4 col-auto entry-end">
+                    <div class="px-4 my-4 col-auto entry">
                 
                     <h2><a class="title" href="/cabs-at-christmas/">Cabs at Christmas</a></h2>
                     
@@ -106,7 +90,9 @@
                 </div>
             
                 
-                    <div class="px-4 my-4 col-auto entry">
+                    </div>
+                    <div class="row justify-content-center">
+                    <div class="px-4 my-4 col-auto entry-end">
                 
                     <h2><a class="title" href="/the-society/">The Society</a></h2>
                     
@@ -134,9 +120,7 @@
                 </div>
             
                 
-                    </div>
-                    <div class="row justify-content-center">
-                    <div class="px-4 my-4 col-auto entry-end">
+                    <div class="px-4 my-4 col-auto entry">
                 
                     <h2><a class="title" href="/hangman/">Hangman</a></h2>
                     
@@ -150,7 +134,9 @@
                 </div>
             
                 
-                    <div class="px-4 my-4 col-auto entry">
+                    </div>
+                    <div class="row justify-content-center">
+                    <div class="px-4 my-4 col-auto entry-end">
                 
                     <h2><a class="title" href="/friendship/">&#34;Friendship&#34;</a></h2>
                     
@@ -184,18 +170,20 @@
 			if (line.trim() == "~~~") {
 				var li = document.createElement("span");
 				li.classList.add("fullbreak");
-			} else if (line.trim() == '~Monospace~') {
-				var li = document.createElement('div');
-				li.classList.add('monospace')
-				line = 'startWrapper';
-				startWrapper = true;
-			} else if (line.trim() == '~/Monospace~') {
-				line = 'endWrapper';
-				wrapper = poem;
 			} else if (line.trim().startsWith("~") && line.trim().endsWith("~")) {
+				if (line.trim().startsWith('~/')) {
+					line = 'endWrapper';
+					wrapper = poem;
+				} else {
+					var li = document.createElement('div');
+					li.classList.add(line.trim().replace(/~/gi,"").toLowerCase());
+					line = 'startWrapper';
+					startWrapper = true;
+				}
+			} else if (line.trim().startsWith("@") && line.trim().endsWith("@")) {
 				var li = document.createElement("span");
 				li.classList.add("text-center","mt-4");
-				line = line.replace(/~/gi,"");
+				line = line.replace(/@/gi,"");
 			} else {
 				var li = document.createElement("li");
 				if (linebreak) {
@@ -214,5 +202,6 @@
 		}
 	});
 	old.parentNode.replaceChild(poem, old);
-</script></body>
+</script>
+</body>
 </html>

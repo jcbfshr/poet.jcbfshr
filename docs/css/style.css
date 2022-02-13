@@ -72,6 +72,10 @@ a {
   white-space: pre;
 }
 
+.centre {
+  text-align: center;
+}
+
 .para {
   margin-top: 1.5rem;
 }

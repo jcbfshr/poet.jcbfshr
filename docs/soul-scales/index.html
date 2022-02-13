@@ -70,18 +70,20 @@ my heart&#39;s desire.</pre>
 			if (line.trim() == "~~~") {
 				var li = document.createElement("span");
 				li.classList.add("fullbreak");
-			} else if (line.trim() == '~Monospace~') {
-				var li = document.createElement('div');
-				li.classList.add('monospace')
-				line = 'startWrapper';
-				startWrapper = true;
-			} else if (line.trim() == '~/Monospace~') {
-				line = 'endWrapper';
-				wrapper = poem;
 			} else if (line.trim().startsWith("~") && line.trim().endsWith("~")) {
+				if (line.trim().startsWith('~/')) {
+					line = 'endWrapper';
+					wrapper = poem;
+				} else {
+					var li = document.createElement('div');
+					li.classList.add(line.trim().replace(/~/gi,"").toLowerCase());
+					line = 'startWrapper';
+					startWrapper = true;
+				}
+			} else if (line.trim().startsWith("@") && line.trim().endsWith("@")) {
 				var li = document.createElement("span");
 				li.classList.add("text-center","mt-4");
-				line = line.replace(/~/gi,"");
+				line = line.replace(/@/gi,"");
 			} else {
 				var li = document.createElement("li");
 				if (linebreak) {
@@ -100,5 +102,6 @@ my heart&#39;s desire.</pre>
 		}
 	});
 	old.parentNode.replaceChild(poem, old);
-</script></body>
+</script>
+</body>
 </html>
