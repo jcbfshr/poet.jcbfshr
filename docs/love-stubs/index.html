@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    
+    
+    <title>jacob fisher poetry | Love stubs</title>
+</head>
+<body><div id="content">
+<div class="container">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-12 col-sm-10 col-md-7">
+            <a class="back" href="/">Go back</a>
+            <h1>Love stubs</h1>
+            <pre id="poem">~Centre~
+Train from Canterbury. 27 September 2021.
+Wolf Alice’s Don’t Delete the Kisses.
+~/Centre~
+
+Departing first my train. Then my tears.
+And I was building a palimpsest of mistakes.
+Only the palimpsest was my opacifying barrier
+Without reflection.
+Everybody tells me I was right;
+The voices can still be heard.
+Quiet, pathetic sobber.
+Against the steady kick and a
+Blur of nature.
+By degrees 
+In
+Nothing I felt eveything.
+But you were
+Endangering a boy—and I you.
+Never can I hate you;
+I proclaim so to circles.
+Tonight sighs rattle my skull
+So cold—so unexplained.
+I hardly blame you for
+Talking to me. But, O, the addiction!
+Dealer unwittingly hooking with free sample of
+Love. He doesn’t supply anymore.
+END</pre>
+
+<div class="caption">
+    <div class="date">
+        Friday 06 May 2022
+    </div>
+</div>
+</div>
+        <div class="col"></div>
+    </div>
+</div>
+
+        </div><div class="copyright">Jacob Fisher</div>
+<div class="text-center">
+    <a href='https://poet.jcbfshr.com/index.xml'>Add to your RSS feed</a>
+</div><script>
+	var old = document.getElementById("poem"),
+		poem = document.createElement("ol"),
+		wrapper = poem;
+	poem.id = "poem";
+	var linebreak = false;
+	var startWrapper = false;
+	old.textContent.split("\n").forEach(function (line) {
+		if (line.trim() == "") {
+			linebreak = true;
+			return false
+		} else {
+			if (line.trim() == "~~~") {
+				var li = document.createElement("span");
+				li.classList.add("fullbreak");
+			} else if (line.trim().startsWith("~") && line.trim().endsWith("~")) {
+				if (line.trim().startsWith('~/')) {
+					line = 'endWrapper';
+					wrapper = poem;
+				} else {
+					var li = document.createElement('div');
+					li.classList.add(line.trim().replace(/~/gi,"").toLowerCase());
+					line = 'startWrapper';
+					startWrapper = true;
+				}
+			} else if (line.trim().startsWith("@") && line.trim().endsWith("@")) {
+				var li = document.createElement("span");
+				li.classList.add("text-center","mt-4");
+				line = line.replace(/@/gi,"");
+			} else {
+				var li = document.createElement("li");
+				if (linebreak) {
+					linebreak = false;
+					li.classList.add("para");
+				}
+			}
+		}
+		if (line != 'endWrapper') {
+			li.textContent = line;
+			wrapper.appendChild(li);
+		}
+		if (line == 'startWrapper') {
+			li.textContent = '';
+			wrapper = li;
+		}
+	});
+	old.parentNode.replaceChild(poem, old);
+</script>
+</body>
+</html>

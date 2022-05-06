@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    
+    
+    <title>jacob fisher poetry | Ward Ends, Otherwise the White Ward</title>
+</head>
+<body><div id="content">
+<div class="container">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-12 col-sm-10 col-md-7">
+            <a class="back" href="/">Go back</a>
+            <h1>Ward Ends, Otherwise the White Ward</h1>
+            <pre id="poem">@I@
+Forty weeks, then forty-two. Then the days
+played peekaboo. By Wednesday noon,
+hours kicked, and at forty-three, minutes
+scratched. We got a pamphlet; doctor
+withdrew us four as if to reassure.
+
+Induced, the labour is said to be.
+Post-term, the baby is said to be.
+Late, the mother is said to be.
+
+Westminster Bridge and its amber
+lights hazing my tears. For quick
+respite, wind freezes them in place.
+As though I need to exhibit such freedoms.
+
+The consultant said we could be in the room.
+Well why wasn&#39;t he?
+@II@
+About our baby, paralysed, I would kill
+to stop the whine. I could kill,
+dare I to move, seven thousand hours
+of life accrued. Screams pierce ordinarily.
+This one is intentless, an incessant,
+titanic broadcast of suffering.
+Inaccessible, the scream-inducers lure me
+to paralysis against the pleaing shriek.
+Cease the pain and overturn the
+futile cries. There wasn&#39;t a champagne
+tap but a fast bleep.
+
+@III@
+If only I knew how to save a life,
+castaway on this north wing, seventh floor.
+Receptionists and signs donate a buzz of fame
+opposite. Gynae: where a whole new world of
+&#39;lap and dye,&#39; or &#39;D and C&#39; awaits diploid
+destiny.
+Obs and gynae, obs and gynae, obs
+and gynae.
+Obs and gynae, sobs and gynae, sobs
+and gynae.</pre>
+
+<div class="caption">
+    <div class="date">
+        Thursday 24 March 2022
+    </div>
+</div>
+</div>
+        <div class="col"></div>
+    </div>
+</div>
+
+        </div><div class="copyright">Jacob Fisher</div>
+<div class="text-center">
+    <a href='https://poet.jcbfshr.com/index.xml'>Add to your RSS feed</a>
+</div><script>
+	var old = document.getElementById("poem"),
+		poem = document.createElement("ol"),
+		wrapper = poem;
+	poem.id = "poem";
+	var linebreak = false;
+	var startWrapper = false;
+	old.textContent.split("\n").forEach(function (line) {
+		if (line.trim() == "") {
+			linebreak = true;
+			return false
+		} else {
+			if (line.trim() == "~~~") {
+				var li = document.createElement("span");
+				li.classList.add("fullbreak");
+			} else if (line.trim().startsWith("~") && line.trim().endsWith("~")) {
+				if (line.trim().startsWith('~/')) {
+					line = 'endWrapper';
+					wrapper = poem;
+				} else {
+					var li = document.createElement('div');
+					li.classList.add(line.trim().replace(/~/gi,"").toLowerCase());
+					line = 'startWrapper';
+					startWrapper = true;
+				}
+			} else if (line.trim().startsWith("@") && line.trim().endsWith("@")) {
+				var li = document.createElement("span");
+				li.classList.add("text-center","mt-4");
+				line = line.replace(/@/gi,"");
+			} else {
+				var li = document.createElement("li");
+				if (linebreak) {
+					linebreak = false;
+					li.classList.add("para");
+				}
+			}
+		}
+		if (line != 'endWrapper') {
+			li.textContent = line;
+			wrapper.appendChild(li);
+		}
+		if (line == 'startWrapper') {
+			li.textContent = '';
+			wrapper = li;
+		}
+	});
+	old.parentNode.replaceChild(poem, old);
+</script>
+</body>
+</html>
